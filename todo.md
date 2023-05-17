@@ -14,7 +14,7 @@ vue3 + ts + vue-router + pinia + css.module
 1. 引入配置
 
 - 打包构建
-1. 线上打包
+1. 线上打包 done
 2. alias src 配置，ts paths 配置 done
 
 - 日常开发

@@ -21,10 +21,16 @@ export default defineConfig({
       '@': resolve('./src')
     }
   },
+  base: '.',
   build: {
     rollupOptions: {
       output: {
+        // 自定义分割 chunks
         manualChunks(id) {
+          // node_modules 单独打入名为 vendor 的 chunk 中
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         }
       }
     },
