@@ -21,6 +21,14 @@ export default defineConfig({
       '@': resolve('./src')
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // theme 文件下的 css 变量，无需导入，全局可用。
+        additionalData: `@import "@/assets/css/theme.scss";`
+      }
+    }
+  },
   base: './',
   build: {
     rollupOptions: {
@@ -36,6 +44,12 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3002
-  }
+    open: false,
+    port: 3002,
+    host: '0.0.0.0',
+    hmr: true,
+    proxy: {
+      '/v1': 'http://172.16.0.12:8080'
+    }
+  },
 })

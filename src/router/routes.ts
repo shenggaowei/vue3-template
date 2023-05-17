@@ -1,6 +1,7 @@
 const Layout = () => import('@/components/Layout/index.vue')
 const Home = () => import('@/pages/Home/index.vue')
 const About = () => import('@/pages/About/index.vue')
+const Login = () => import('@/pages/Login/index.vue')
 
 export default [
     {
@@ -19,5 +20,8 @@ export default [
             }
         ]
     },
-
+    {
+        path: "/login",
+        component: Login,
+    }
 ] 
