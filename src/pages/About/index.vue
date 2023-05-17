@@ -1,5 +1,6 @@
-<template>About 页面</template>
+<template>
+  About 页面
+  <div>{{ $translate("greetings.hello") }}</div>
+</template>
 
-<script setup lang="ts">
-console.log("about 页面");
-</script>
+<script setup lang="ts"></script>
