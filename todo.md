@@ -2,8 +2,8 @@ vue3 + ts + vue-router + pinia + css.module
 
 - element-plus 
 1. 按需引入 done
-2. 默认样式修改 todo
-3. 国际化 todo
+2. 默认样式修改 waiting
+3. 国际化 waiting
 
 - vue-route
 1. 引入配置 done
@@ -19,3 +19,4 @@ vue3 + ts + vue-router + pinia + css.module
 
 - 日常开发
 1. axios 配置 done
+2. eslint + prettier 配置 waiting

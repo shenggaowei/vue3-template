@@ -6,7 +6,7 @@ import {
 import { hideLoading } from './loading'
 
 const instance = axios.create({
-    timeout: 10 * 60 * 1000,
+    timeout: 60 * 60 * 1000,
     withCredentials: true,
     baseURL: ''
 })

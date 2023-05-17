@@ -21,7 +21,7 @@ export default defineConfig({
       '@': resolve('./src')
     }
   },
-  base: '.',
+  base: './',
   build: {
     rollupOptions: {
       output: {
@@ -34,5 +34,8 @@ export default defineConfig({
         }
       }
     },
+  },
+  server: {
+    port: 3002
   }
 })
