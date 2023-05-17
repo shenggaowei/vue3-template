@@ -6,7 +6,7 @@ let messageInstance: any
 export function showLoading() {
     if (loadingCount === 0) {
         messageInstance = ElMessage({
-            content: '加载中',
+            message: '加载中',
             duration: 0
         })
     }

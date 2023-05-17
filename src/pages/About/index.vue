@@ -1,6 +1,9 @@
-<template>
-  About 页面
-  <div>{{ $translate("greetings.hello") }}</div>
-</template>
+<template>About 页面</template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import axios from "axios";
+
+axios.get("www.baidu.com").then((data) => {
+  console.log(data);
+});
+</script>

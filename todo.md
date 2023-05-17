@@ -6,8 +6,8 @@ vue3 + ts + vue-router + pinia + css.module
 3. 国际化 todo
 
 - vue-route
-1. 引入配置 doing
-2. 权限配置 todo
+1. 引入配置 done
+2. 权限配置 done
 3. 路由懒加载 done
 
 - pinia 
