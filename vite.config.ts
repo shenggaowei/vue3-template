@@ -35,7 +35,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        // 自定义分割 chunks，node_modules中的每一个模块都是一个chunk
+        // 自定义分割 chunks。node_modules中的每一个模块都是一个chunk
         manualChunks(id) {
           if (id.includes('node_modules')) {
             const reg = /node_modules\/([\w\-@]+)\//

@@ -10,6 +10,10 @@ export default [
         children: [
             {
                 path: '',
+                component: Home
+            },
+            {
+                path: 'home',
                 name: 'home',
                 component: Home
             },
