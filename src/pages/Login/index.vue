@@ -38,10 +38,10 @@ const loginRules = {
 // 登录函数
 const submitForm = async () => {
   try {
-    // await loginHandler.run({
-    //   username: loginForm.userName,
-    //   password: loginForm.password,
-    // });
+    await loginHandler.run({
+      username: loginForm.userName,
+      password: loginForm.password,
+    });
   } catch (e) {
   } finally {
     cacheHandler.setCache(storage_key, { token: "12345" });

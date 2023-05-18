@@ -14,7 +14,7 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver()],
-    })
+    }),
   ],
   resolve: {
     alias: {
@@ -24,20 +24,23 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // theme 文件下的 css 变量，无需导入，全局可用。
+        // theme 文件下的 css 变量，覆盖 element-plus 组件样式，无需导入，全局可用。
         additionalData: `@import "@/assets/css/theme.scss";`
       }
     }
   },
   base: './',
   build: {
+    // 初始 chunk>500k，控制台警告，需手动进行分包。
+    chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        // 自定义分割 chunks
+        // 自定义分割 chunks，node_modules中的每一个模块都是一个chunk
         manualChunks(id) {
-          // node_modules 单独打入名为 vendor 的 chunk 中
           if (id.includes('node_modules')) {
-            return 'vendor';
+            const reg = /node_modules\/([\w\-@]+)\//
+            const chunkName = id.match(reg)?.[1]
+            return chunkName
           }
         }
       }
