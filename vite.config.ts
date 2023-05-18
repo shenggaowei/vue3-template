@@ -31,8 +31,8 @@ export default defineConfig({
   },
   base: './',
   build: {
-    // 初始 chunk>500k，控制台警告，需手动进行分包。
-    chunkSizeWarningLimit: 500,
+    // 初始 chunk> 800，控制台警告，需手动进行分包。
+    chunkSizeWarningLimit: 800,
     rollupOptions: {
       output: {
         // 自定义分割 chunks。node_modules中的每一个模块都是一个chunk
