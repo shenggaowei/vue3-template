@@ -1,9 +1,3 @@
-/*
- * @Description:
- * @Author: hui
- * @Date: 2022-04-01 15:04:30
- * @LastEditTime: 2022-04-01 16:13:37
- */
 const express = require("express");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const path = require("path");
