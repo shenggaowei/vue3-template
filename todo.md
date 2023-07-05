@@ -26,3 +26,7 @@ vue3 + ts + vue-router + pinia + css.module
 - 日常开发
 1. axios 配置 done
 2. eslint + prettier 配置 waiting
+
+- 移动端适配
+1. 移动端判断函数
+2. vuex 和 localStorage 全局存储
