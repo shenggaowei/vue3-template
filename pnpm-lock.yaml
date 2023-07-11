@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@types/ismobilejs':
-    specifier: ^1.0.1
-    version: 1.0.1
   '@vueuse/core':
     specifier: ^10.1.2
     version: 10.1.2(vue@3.3.4)
@@ -371,13 +368,6 @@ packages:
     resolution: {integrity: sha512-HC8G7c1WmaF2ekqpnFq626xd3Zz0uvaqFmBJNRZCGEZCXkvSdJoNFn/8Ygbd9fKNQj8UzLdCETaI0UWPAjK7IA==}
     dependencies:
       '@types/node': 20.1.7
-    dev: false
-
-  /@types/ismobilejs@1.0.1:
-    resolution: {integrity: sha512-QLMcgU2IHqwjWXIS8CSJSZDUu75qhq29K/xBIIcJbPZ9nqIrdAkFJ472zH/OkaiX/6L31chBBkU/pNoY+hY3og==}
-    deprecated: This is a stub types definition. ismobilejs provides its own type definitions, so you do not need this installed.
-    dependencies:
-      ismobilejs: 1.1.1
     dev: false
 
   /@types/lodash-es@4.17.7:

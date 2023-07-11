@@ -45,6 +45,7 @@ export default defineConfig(({ command, mode }) => {
             mediaQuery: true, // 是否在媒体查询的css代码中也进行转换，默认false
             replace: true, // 是否转换后直接更换属性值
             exclude: [],
+            // src/pages/**/*.mobile.vue 会进行 px->vw 转换
             include: [
               /src\/pages\/[\s\S]*?\.?mobile\.vue/,
             ],
