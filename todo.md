@@ -13,7 +13,7 @@ vue3 + ts + vue-router + pinia + css.module
 3. 路由懒加载 done
 
 - pinia 
-1. 引入配置 waiting
+1. 引入配置 done
 
 - 打包构建
 1. 线上打包
@@ -25,8 +25,9 @@ vue3 + ts + vue-router + pinia + css.module
 
 - 日常开发
 1. axios 配置 done
-2. eslint + prettier 配置 waiting
+2. 文件上传服务引入 done
+3. eslint + prettier 配置 waiting
 
 - 移动端适配
-1. 移动端判断函数
-2. vuex 和 localStorage 全局存储
+1. 移动端判断函数 done
+2. vuex 和 localStorage 全局存储 done
