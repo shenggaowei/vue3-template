@@ -14,6 +14,8 @@ const cacheHandler = useCache();
 const $router = useRouter();
 const loginHandler = useLogin();
 
+console.log("hahah");
+
 const loginForm = reactive({
   userName: ``,
   password: ``,
