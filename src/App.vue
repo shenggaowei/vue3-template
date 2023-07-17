@@ -24,4 +24,5 @@ console.log(`设备是${store.systemInfo.isMobile ? "移动" : "pc"}端`);
 
 <style lang="scss">
 @import "@/assets/css/reset.scss";
+@import "@/assets/css/tailwind.scss";
 </style>
