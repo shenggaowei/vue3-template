@@ -1,6 +1,6 @@
 # 前端 vue3 模板项目
 
-vite + vue3 + vue-router4 + element-plus 
+vite + vue3 + vue-router4 + ant-design-vue
 
 node >= v18.16.0
 pnpm >= 8.5.1

@@ -1,10 +1,12 @@
 import { resolve } from 'path'
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig, loadEnv, normalizePath } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver, VantResolver } from 'unplugin-vue-components/resolvers'
+import { VantResolver, AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import postCssPxToViewport from "xy-postcss-px-to-viewport";
+
+const globalCssPath = normalizePath(resolve('./src/assets/css/theme.scss'))
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -13,10 +15,10 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       vue(),
       AutoImport({
-        resolvers: [ElementPlusResolver(), VantResolver()],
+        resolvers: [VantResolver(), AntDesignVueResolver()],
       }),
       Components({
-        resolvers: [ElementPlusResolver(), VantResolver()],
+        resolvers: [VantResolver(), AntDesignVueResolver({ importStyle: false })],
       }),
     ],
     resolve: {
@@ -25,10 +27,11 @@ export default defineConfig(({ command, mode }) => {
       }
     },
     css: {
+      modules: {},
       preprocessorOptions: {
         scss: {
-          // 全局样式注入
-          additionalData: `@import "@/assets/css/index.scss";`
+          // 全局样式变量注入
+          additionalData: `@import "${globalCssPath}";`
         }
       },
       postcss: {

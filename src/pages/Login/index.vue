@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { ElForm } from "element-plus";
 import { reactive, ref } from "vue";
 import useCache from "@/hooks/useCache";
 import { useRouter } from "vue-router";
@@ -14,33 +13,17 @@ const cacheHandler = useCache();
 const $router = useRouter();
 const loginHandler = useLogin();
 
-const loginForm = reactive({
+const formData = reactive({
   userName: ``,
   password: ``,
 });
 
-const loginRules = {
-  userName: [
-    {
-      required: true,
-      message: "请填写用户名",
-      trigger: `blur`,
-    },
-  ],
-  password: [
-    {
-      required: true,
-      message: "请填写密码",
-      trigger: `blur`,
-    },
-  ],
-};
 // 登录函数
 const submitForm = async () => {
   try {
     await loginHandler.run({
-      username: loginForm.userName,
-      password: loginForm.password,
+      username: formData.userName,
+      password: formData.password,
     });
   } catch (e) {
   } finally {
@@ -66,7 +49,7 @@ const handleBlur = (val: string) => {
 };
 
 const handleChangeInput = () => {
-  if (loginForm.userName && loginForm.password) {
+  if (formData.userName && formData.password) {
     isShowLoginBtn.value = true;
   } else {
     isShowLoginBtn.value = false;
@@ -75,29 +58,30 @@ const handleChangeInput = () => {
 </script>
 
 <template>
-  <div class="login">
-    <div class="loginBox">
-      <div class="login-left">
-        <img src="@/assets/images/login-left.png" class="logoLeftImg" />
+  <div :class="cls.login">
+    <div :class="cls.loginBox">
+      <div :class="cls['login-left']">
+        <img
+          src="@/assets/images/login-left.png"
+          :class="cls['logo-left-img']"
+        />
       </div>
-      <div class="login-info">
-        <div class="logo-img">
-          <img src="@/assets/images/logo.png" class="logo-icon" alt="" />
-        </div>
-        <div class="form-style">
-          <el-form
-            :model="loginForm"
-            status-icon
-            :rules="loginRules"
-            class="demo-ruleForm"
-          >
-            <el-form-item prop="userName" class="username-input">
-              <el-input
-                v-model="loginForm.userName"
-                autocomplete="off"
-                maxlength="20"
+      <div :class="cls['login-info']">
+        <img src="@/assets/images/logo.png" :class="cls['logo-icon']" alt="" />
+        <div :class="cls['form-content']">
+          <a-form :model="formData" :class="cls['demo-ruleForm']">
+            <a-form-item
+              name="userName"
+              :class="cls['username-input']"
+              :rules="[
+                { required: true, message: '请填写用户名', trigger: 'blur' },
+              ]"
+            >
+              <a-input
+                v-model:value="formData.userName"
+                :maxlength="20"
+                :class="cls['input-common']"
                 placeholder="请填写用户名"
-                class="span10"
                 @focus="handleFocus(`userName`)"
                 @blur="handleBlur(`userName`)"
                 @keyup="handleChangeInput"
@@ -105,28 +89,28 @@ const handleChangeInput = () => {
                 <template #prefix>
                   <img
                     v-if="isActiveUsername"
-                    class="user-icon"
+                    :class="cls['user-icon']"
                     src="@/assets/images/user_active_icon.png"
-                    alt=""
                   />
                   <img
                     v-else
-                    class="user-icon"
+                    :class="cls['user-icon']"
                     src="@/assets/images/user_icon.png"
-                    alt=""
                   />
                 </template>
-              </el-input>
-            </el-form-item>
-            <el-form-item prop="password">
-              <el-input
-                v-model="loginForm.password"
-                type="password"
-                show-password
-                autocomplete="off"
-                maxlength="20"
+              </a-input>
+            </a-form-item>
+            <a-form-item
+              name="password"
+              :rules="[
+                { required: true, message: '请填写密码', trigger: 'blur' },
+              ]"
+            >
+              <a-input-password
+                v-model:value="formData.password"
+                :maxlength="20"
+                :class="cls['input-common']"
                 placeholder="请填写密码"
-                class="span10"
                 @focus="handleFocus(`password`)"
                 @blur="handleBlur(`password`)"
                 @keyup="handleChangeInput"
@@ -134,139 +118,96 @@ const handleChangeInput = () => {
                 <template #prefix>
                   <img
                     v-if="isActivePassword"
-                    class="user-icon"
+                    :class="cls['user-icon']"
                     src="@/assets/images/pwd_active_icon.png"
                     alt=""
                   />
                   <img
                     v-else
-                    class="user-icon"
+                    :class="cls['user-icon']"
                     src="@/assets/images/pwd_icon.png"
                     alt=""
                   />
                 </template>
-              </el-input>
-            </el-form-item>
-            <el-form-item class="btn-login span10">
-              <el-button
+              </a-input-password>
+            </a-form-item>
+            <a-form-item :class="cls['btn-login']">
+              <a-button
                 v-if="isShowLoginBtn"
-                class="btn-login-active"
+                :class="[cls['btn-login-active'], cls['btn-common']]"
                 type="primary"
                 @click="submitForm"
               >
                 登录
-              </el-button>
-              <el-button
+              </a-button>
+              <a-button
                 v-else
-                class="btn-login-disable"
+                :class="[cls['btn-login-disable'], cls['btn-common']]"
                 type="primary"
                 disabled
-                >登录</el-button
+                >登录</a-button
               >
-            </el-form-item>
-          </el-form>
+            </a-form-item>
+          </a-form>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module="cls">
 .login {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  background: url(@/assets/images/login-bg.png) no-repeat 100% 100%;
-  background-size: cover;
+  background: url(@/assets/images/login-bg.png) center center/cover no-repeat;
   .login-left {
     width: 65%;
-    .logoLeftImg {
+    .logo-left-img {
       height: 100%;
       width: 100%;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
     }
   }
   .loginBox {
     display: flex;
     width: 900px;
     height: 460px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0px;
-    left: 0;
-    margin: auto;
-    z-index: 1;
-    // padding: 50px 30px 0;
     border: 1px solid $main_theme;
     border-radius: 10px;
     background-color: #fff;
     .login-info {
       width: 50%;
-      // margin-left: 50px;
-      .logo-img {
-        text-align: center;
-      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .logo-icon {
         width: 60px;
         margin-top: 80px;
         margin-bottom: 10px;
       }
     }
-    .form-style {
+    .form-content {
       padding: 20px 50px 0 50px;
+      width: 100%;
     }
 
     .username-input {
       margin-bottom: 30px;
     }
-    .header-icon {
-      z-index: 10000;
-    }
-    .login-remark {
-      margin-left: 10px;
-      color: #b1b3b8;
-    }
-    .code-date {
-      color: #94979e;
-    }
-    .code-icon {
-      display: inline-block;
-      height: 20px;
-      width: 1px;
-      background-color: #e2e4e7;
-      margin-top: 8px;
-      margin-right: 10px;
+
+    .input-common {
+      height: 36px;
     }
 
-    .code-label {
-      color: $main_theme;
-      cursor: pointer;
-    }
-    .zhuce-style {
-      color: $main_theme;
-      cursor: pointer;
-    }
-    h4 {
-      margin: 35px 0 30px 10px;
-      font-size: 22px;
-    }
-    :deep(.el-form) {
-      .el-form-item {
-        background-color: transparent;
-      }
-      .el-form-item__content {
-        background-color: transparent;
-      }
-      &:last-child {
-        .el-button {
-          width: 100%;
-        }
-      }
-    }
     .btn-login {
       margin-top: 30px;
+
+      .btn-common {
+        width: 100%;
+      }
+
       .btn-login-active {
         height: 36px;
       }
@@ -278,11 +219,6 @@ const handleChangeInput = () => {
     .user-icon {
       width: 16px;
       height: 16px;
-      //margin-top: 9px;
-    }
-
-    :deep(.el-input__inner:focus) {
-      outline: 0;
     }
   }
 }
