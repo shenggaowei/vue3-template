@@ -3,7 +3,7 @@ import { reactive, ref } from "vue";
 import useCache from "@/hooks/useCache";
 import { useRouter } from "vue-router";
 import { useLogin } from "./service";
-import { storage_key } from "@/utils/const/index";
+import { storage_key, system_info } from "@/utils/const/index";
 
 const isActiveUsername = ref(false);
 const isActivePassword = ref(false);
@@ -65,6 +65,10 @@ const handleChangeInput = () => {
           src="@/assets/images/login-left.png"
           :class="cls['logo-left-img']"
         />
+        <div :class="cls['title-container']">
+          <div :class="cls['title']">{{ system_info.title }}</div>
+          <div :class="cls['second-title']">{{ system_info.description }}</div>
+        </div>
       </div>
       <div :class="cls['login-info']">
         <img src="@/assets/images/logo.png" :class="cls['logo-icon']" alt="" />
@@ -165,6 +169,36 @@ const handleChangeInput = () => {
   background: url(@/assets/images/login-bg.png) center center/cover no-repeat;
   .login-left {
     width: 65%;
+    position: relative;
+
+    .title-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 45px;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      .title {
+        height: 40px;
+        font-size: 26px;
+        font-weight: 600;
+        color: #262626;
+        line-height: 40px;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+
+      .second-title {
+        height: 20px;
+        font-size: 16px;
+        color: rgba(103, 106, 108, 0.7);
+        line-height: 20px;
+        letter-spacing: 1px;
+      }
+    }
     .logo-left-img {
       height: 100%;
       width: 100%;

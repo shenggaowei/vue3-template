@@ -1,6 +1,6 @@
 vue3 + ts + vue-router + pinia + css.module 
 
-- element-plus 
+- ant-design-vue
 1. 按需引入 done
 2. 默认样式修改 waiting
 3. 国际化 waiting
@@ -26,7 +26,8 @@ vue3 + ts + vue-router + pinia + css.module
 - 日常开发
 1. axios 配置 done
 2. 文件上传服务引入 done
-3. eslint + prettier 配置 waiting
+3. tailwindcss 配置 done
+4. eslint + prettier 配置 waiting
 
 - 移动端适配
 1. 移动端判断函数 done
