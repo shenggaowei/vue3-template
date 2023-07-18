@@ -4,7 +4,7 @@ import useCache from "@/hooks/useCache";
 import { useAuthStore } from "@/store";
 import { useRouter } from "vue-router";
 import { useLogin } from "./service";
-import { storage_key, system_info } from "@/utils/const/index";
+import { storage_key, system_desc, system_title } from "@/utils/const/index";
 
 const isActiveUsername = ref(false);
 const isActivePassword = ref(false);
@@ -72,8 +72,8 @@ const handleChangeInput = () => {
           :class="cls['logo-left-img']"
         />
         <div :class="cls['title-container']">
-          <div :class="cls['title']">{{ system_info.title }}</div>
-          <div :class="cls['second-title']">{{ system_info.description }}</div>
+          <div :class="cls['title']">{{ system_title }}</div>
+          <div :class="cls['second-title']">{{ system_desc }}</div>
         </div>
       </div>
       <div :class="cls['login-info']">

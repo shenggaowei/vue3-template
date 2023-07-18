@@ -2,7 +2,7 @@
   <a-breadcrumb separator=">">
     <a-breadcrumb-item>
       <router-link to="home"
-        ><span class="text-textColor">hom</span></router-link
+        ><span class="text-textColor">home</span></router-link
       >
     </a-breadcrumb-item>
     <a-breadcrumb-item v-for="(item, index) in routeStack" :key="index">
