@@ -17,10 +17,6 @@ export default [
     component: Layout,
     children: [
       {
-        path: "",
-        component: Home,
-      },
-      {
         path: "home",
         name: "home",
         component: Home,

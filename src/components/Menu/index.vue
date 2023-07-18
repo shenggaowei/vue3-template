@@ -20,7 +20,7 @@ const state = reactive({
   selectedKeys: [],
 });
 
-const _systemRoutes = (systemRoutes as any)[0].children.slice(1).map((ele) => {
+const _systemRoutes = (systemRoutes as any)[0].children.map((ele) => {
   const meta = ele.meta;
   return {
     label: meta.label,
