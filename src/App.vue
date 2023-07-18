@@ -22,5 +22,4 @@ store.updateSystemDeviceInfo(isMobile());
 
 <style lang="scss">
 @import "@/assets/css/reset.scss";
-@import "@/assets/css/tailwind.scss";
 </style>

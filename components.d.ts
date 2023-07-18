@@ -9,14 +9,23 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ABreadcrumb: typeof import('ant-design-vue/es')['Breadcrumb']
+    ABreadcrumbItem: typeof import('ant-design-vue/es')['BreadcrumbItem']
     AButton: typeof import('ant-design-vue/es')['Button']
     AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider']
     AForm: typeof import('ant-design-vue/es')['Form']
     AFormItem: typeof import('ant-design-vue/es')['FormItem']
     AInput: typeof import('ant-design-vue/es')['Input']
     AInputPassword: typeof import('ant-design-vue/es')['InputPassword']
+    AMenu: typeof import('ant-design-vue/es')['Menu']
+    Aside: typeof import('./src/components/Aside/index.vue')['default']
+    Breadcrumb: typeof import('./src/components/Breadcrumb/index.vue')['default']
+    Header: typeof import('./src/components/Header/index.vue')['default']
     Layout: typeof import('./src/components/Layout/index.vue')['default']
+    Logo: typeof import('./src/components/Logo/index.vue')['default']
+    Menu: typeof import('./src/components/Menu/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Top: typeof import('./src/components/Top/index.vue')['default']
   }
 }
