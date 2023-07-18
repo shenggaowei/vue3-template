@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import useCache from "@/hooks/useCache";
+import { useAuthStore } from "@/store";
 import { useRouter } from "vue-router";
 import { useLogin } from "./service";
 import { storage_key, system_info } from "@/utils/const/index";
@@ -10,8 +11,9 @@ const isActivePassword = ref(false);
 const isShowLoginBtn = ref(false);
 
 const cacheHandler = useCache();
-const $router = useRouter();
+const router = useRouter();
 const loginHandler = useLogin();
+const store = useAuthStore();
 
 const formData = reactive({
   userName: ``,
@@ -21,14 +23,18 @@ const formData = reactive({
 // 登录函数
 const submitForm = async () => {
   try {
-    await loginHandler.run({
+    const data = await loginHandler.run({
       username: formData.userName,
       password: formData.password,
     });
+    if (data?.loginUser) {
+      store.updateUserInfo(data.loginUser);
+      cacheHandler.setCache(storage_key, data.loginUser);
+    }
   } catch (e) {
   } finally {
     cacheHandler.setCache(storage_key, { token: "12345" });
-    $router.push({ name: "home" });
+    router.push({ name: "home" });
   }
 };
 
