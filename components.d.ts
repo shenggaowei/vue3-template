@@ -24,6 +24,7 @@ declare module '@vue/runtime-core' {
     Aside: typeof import('./src/components/Aside/index.vue')['default']
     Breadcrumb: typeof import('./src/components/Breadcrumb/index.vue')['default']
     Header: typeof import('./src/components/Header/index.vue')['default']
+    Icon: typeof import('./src/components/Icon/index.vue')['default']
     Layout: typeof import('./src/components/Layout/index.vue')['default']
     Logo: typeof import('./src/components/Logo/index.vue')['default']
     Menu: typeof import('./src/components/Menu/index.vue')['default']
