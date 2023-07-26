@@ -6,6 +6,6 @@
 </template>
 
 <script lang="ts" setup>
-import Header from "@/components/Logo/index.vue";
-import Menu from "@/components/Menu/index.vue";
+import Header from "../Logo/index.vue";
+import Menu from "../Menu/index.vue";
 </script>

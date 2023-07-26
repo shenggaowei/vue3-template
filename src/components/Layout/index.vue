@@ -13,6 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import Aside from "@/components/Aside/index.vue";
-import Top from "@/components/Top/index.vue";
+import Aside from "./Aside/index.vue";
+import Top from "./Top/index.vue";
 </script>

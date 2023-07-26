@@ -8,6 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import BreadcrumbCom from "@/components/Breadcrumb/index.vue";
-import UserInfo from "@/components/Top/UserInfo.vue";
+import BreadcrumbCom from "../Breadcrumb/index.vue";
+import UserInfo from "../Top/UserInfo.vue";
 </script>

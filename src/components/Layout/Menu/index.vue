@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, watch, onMounted } from "vue";
+import { reactive, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import systemRoutes from "@/router/routes";
 
