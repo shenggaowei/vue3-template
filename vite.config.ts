@@ -8,10 +8,14 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 const globalCssPath = normalizePath(resolve('./src/assets/css/theme.scss'))
 
+// env 配置文件目录
+const envDir = resolve(__dirname, './env');
+
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, envDir, '')
   return {
+    envDir,
     plugins: [
       vue(),
       AutoImport({
@@ -40,7 +44,7 @@ export default defineConfig(({ command, mode }) => {
       },
       postcss: resolve('./postcss.config.js')
     },
-    base: './',
+    base: env.VITE_BASE_URL,
     build: {
       // 初始 chunk> 800，控制台警告，需手动进行分包。
       chunkSizeWarningLimit: 800,
@@ -59,7 +63,7 @@ export default defineConfig(({ command, mode }) => {
     },
     server: {
       open: false,
-      port: 3002,
+      port: Number(env.PORT),
       host: '0.0.0.0',
       hmr: true,
       proxy: {

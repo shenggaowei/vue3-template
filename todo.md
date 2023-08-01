@@ -19,9 +19,10 @@ vue3 + ts + vue-router + pinia + css.module
 1. 线上打包
     1. chunks 分割 done
     2. dist 上传到 oss，配置 cdn 加速 waiting
-2. alias src 配置，ts paths 配置 done
-3. 打包时将图片进行压缩 waiting
-4. 容器化部署调试 done
+2. 使用 dotenv 配置环境变量 done
+3. alias src 配置，ts paths 配置 done
+4. 打包时将图片进行压缩 waiting
+5. 容器化部署调试 done
 
 - 日常开发
 1. axios 配置 done

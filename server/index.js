@@ -5,7 +5,10 @@ const { port, proxy } = require("./config");
 
 const app = express();
 
-app.use("/", express.static(path.join(__dirname, "../dist")));
+app.use(
+  process.env.VITE_BASE_URL,
+  express.static(path.join(__dirname, "../dist")),
+);
 
 Object.keys(proxy).map((key) => {
   app.use(key, createProxyMiddleware(proxy[key]));

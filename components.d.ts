@@ -23,7 +23,6 @@ declare module '@vue/runtime-core' {
     APopconfirm: typeof import('ant-design-vue/es')['Popconfirm']
     Aside: typeof import('./src/components/Layout/Aside/index.vue')['default']
     Breadcrumb: typeof import('./src/components/Layout/Breadcrumb/index.vue')['default']
-    Header: typeof import('./src/components/Header/index.vue')['default']
     Icon: typeof import('./src/components/Icon/index.vue')['default']
     Layout: typeof import('./src/components/Layout/index.vue')['default']
     Logo: typeof import('./src/components/Layout/Logo/index.vue')['default']
