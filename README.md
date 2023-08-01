@@ -1,4 +1,4 @@
-****# 前端 vue3 模板项目
+# 前端 vue3 模板项目
 
 vite + vue3 + vue-router4 + ant-design-vue + scss + tailwind
 
