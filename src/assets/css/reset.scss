@@ -39,7 +39,7 @@ footer {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
   padding: 0;
   -moz-user-select: none;
@@ -73,35 +73,10 @@ a {
   color: inherit;
 }
 
-input::-ms-clear {
-  display: none;
-}
-
-input::-ms-reveal {
-  display: none;
-}
-
-input {
-  -webkit-appearance: none;
-  margin: 0;
-  outline: none;
-  padding: 0;
-}
-
-input[type="submit"],
-input[type="button"] {
-  cursor: pointer;
-}
-
 textarea {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
-}
-
-button[disabled],
-input[disabled] {
-  cursor: default;
 }
 
 img {
