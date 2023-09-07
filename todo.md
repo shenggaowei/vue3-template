@@ -2,7 +2,7 @@ vue3 + ts + vue-router + pinia + css.module
 
 - ant-design-vue
 1. 按需引入 done
-2. 默认样式修改 waiting
+2. 默认样式修改 done
 3. 国际化 waiting
 
 - vue-route
@@ -32,4 +32,3 @@ vue3 + ts + vue-router + pinia + css.module
 
 - 移动端适配
 1. 移动端判断函数 done
-2. vuex 和 localStorage 全局存储 done
