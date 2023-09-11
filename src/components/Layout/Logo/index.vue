@@ -1,9 +1,6 @@
 <template>
-  <h1 class="flex h-[48px] items-center px-8">
-    <img
-      src="../../../assets/images/logo.png"
-      class="mr-[20px] h-[34px] w-[34px]"
-    />
+  <h1 :class="$style.container">
+    <img src="../../../assets/images/logo.png" :class="$style.logo" />
     <div class="text-base text-white">{{ title }}</div>
   </h1>
 </template>
@@ -14,3 +11,18 @@ import { ref } from "vue";
 
 const title = ref(system_title);
 </script>
+
+<style lang="scss" module>
+.container {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  background-color: $second_theme;
+
+  .logo {
+    margin-right: 20px;
+    height: 34px;
+    width: 34px;
+  }
+}
+</style>

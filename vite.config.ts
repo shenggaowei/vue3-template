@@ -67,7 +67,7 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
       hmr: true,
       proxy: {
-        '/v1': env.VITE_BASE_URL
+        '/v1': env.VITE_FETCH_BASE_URL
       }
     },
   }

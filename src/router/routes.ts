@@ -1,7 +1,6 @@
+import { isMobile, menuIconSize } from "@/utils";
+import ICON from "@/components/Icon/index.vue";
 import { h } from "vue";
-import { PieChartOutlined, AppstoreOutlined } from "@ant-design/icons-vue";
-
-import { isMobile } from "@/utils";
 
 const Layout = () => import("@/components/Layout/index.vue");
 const Home = () =>
@@ -22,10 +21,9 @@ export default [
         name: "home",
         component: Home,
         meta: {
-          label: "home",
-          title: "home",
+          title: "用户管理",
           key: "home",
-          icon: () => h(PieChartOutlined),
+          icon: () => h(ICON, { name: "menu_vue", size: menuIconSize }),
         },
       },
       {
@@ -33,10 +31,9 @@ export default [
         name: "about",
         component: About,
         meta: {
-          label: "about",
-          title: "about",
+          title: "专业管理",
           key: "about",
-          icon: () => h(AppstoreOutlined),
+          icon: () => h(ICON, { name: "menu_setting", size: menuIconSize }),
         },
       },
     ],

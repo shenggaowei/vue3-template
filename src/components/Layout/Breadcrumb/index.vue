@@ -1,14 +1,18 @@
 <template>
-  <a-breadcrumb separator=">">
-    <a-breadcrumb-item>
-      <router-link to="home"
-        ><span class="text-textColor">home</span></router-link
-      >
-    </a-breadcrumb-item>
-    <a-breadcrumb-item v-for="(item, index) in routeStack" :key="index">
-      <router-link :to="item.to">{{ item.name }}</router-link>
-    </a-breadcrumb-item>
-  </a-breadcrumb>
+  <div :class="$style.container">
+    <a-breadcrumb separator=">">
+      <a-breadcrumb-item>
+        <router-link to="home"
+          ><span :class="$style.headText">home</span></router-link
+        >
+      </a-breadcrumb-item>
+      <a-breadcrumb-item v-for="(item, index) in routeStack" :key="index">
+        <router-link :to="item.to">
+          <div :class="$style.customText">{{ item.name }}</div></router-link
+        >
+      </a-breadcrumb-item>
+    </a-breadcrumb>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -24,10 +28,27 @@ watch(
     routeStack.value = val.slice(1).map((ele) => {
       return {
         to: ele.name,
-        name: ele.meta.label,
+        name: ele.meta.title,
       };
     });
   },
   { immediate: true },
 );
 </script>
+
+<style lang="scss" module>
+.container {
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.headText {
+  color: #277dbe;
+  font-size: 14px;
+}
+
+.customText {
+  font-size: 14px;
+  color: $second_theme;
+}
+</style>

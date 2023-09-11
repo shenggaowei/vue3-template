@@ -1,8 +1,8 @@
 <template>
   <div class="flex items-center">
-    <img class="mr-2 h-6 w-6" src="@/assets/images/userDefault.png" />
+    <img class="mr-2 h-6 w-6 rounded" src="@/assets/images/userDefault.png" />
     <a-dropdown>
-      <a class="flex text-sm" @click.prevent>
+      <a class="flex cursor-pointer text-sm text-white" @click.prevent>
         {{ authInfo.userInfo?.userName ?? "东北林场" }}
       </a>
       <template #overlay>
