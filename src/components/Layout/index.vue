@@ -45,16 +45,16 @@ const store = useSystemStore();
   flex: 1;
 
   .left {
-    height: calc(100% - 50px);
+    height: calc(100% - 70px);
     position: fixed;
-    top: 50px;
+    top: 70px;
   }
 
   .right {
     width: 100%;
     padding: 8px 16px 16px 0px;
     margin-left: 176px;
-    margin-top: 50px;
+    margin-top: 70px;
     transition: all 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
 
     &_collapsed {

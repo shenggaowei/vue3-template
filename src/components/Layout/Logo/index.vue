@@ -1,7 +1,7 @@
 <template>
   <h1 :class="$style.container">
     <img src="../../../assets/images/logo.png" :class="$style.logo" />
-    <div class="text-base text-white">{{ title }}</div>
+    <div :class="$style.title">{{ title }}</div>
   </h1>
 </template>
 
@@ -21,8 +21,13 @@ const title = ref(system_title);
 
   .logo {
     margin-right: 20px;
-    height: 34px;
-    width: 34px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .title {
+    color: #fff;
+    font-size: 22px;
   }
 }
 </style>

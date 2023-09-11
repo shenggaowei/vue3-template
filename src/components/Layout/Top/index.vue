@@ -17,7 +17,7 @@ import Logo from "../Logo/index.vue";
   padding: 0 20px;
   align-items: center;
   background-color: $second_theme;
-  height: 50px;
+  height: 70px;
   position: fixed;
   width: 100%;
   z-index: 10;
