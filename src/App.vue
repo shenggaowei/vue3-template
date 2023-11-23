@@ -13,11 +13,6 @@
 
 <script setup lang="ts">
 import { theme } from "ant-design-vue";
-import { useSystemStore } from "@/store";
-import { isMobile } from "@/utils";
-
-const store = useSystemStore();
-store.updateSystemDeviceInfo(isMobile());
 </script>
 
 <style lang="scss">

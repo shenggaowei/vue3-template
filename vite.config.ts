@@ -1,9 +1,9 @@
-import { resolve } from 'path'
-import { defineConfig, loadEnv, normalizePath } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
-import { VantResolver, AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import { defineConfig, loadEnv, normalizePath } from 'vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 const globalCssPath = normalizePath(resolve('./src/assets/css/theme.scss'))
@@ -19,10 +19,10 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       AutoImport({
-        resolvers: [VantResolver(), AntDesignVueResolver()],
+        resolvers: [AntDesignVueResolver()],
       }),
       Components({
-        resolvers: [VantResolver(), AntDesignVueResolver({ importStyle: false })],
+        resolvers: [AntDesignVueResolver({ importStyle: false })],
       }),
       createSvgIconsPlugin({
         iconDirs: [resolve(process.cwd(), 'src/assets/icon/')],

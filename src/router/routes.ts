@@ -1,12 +1,9 @@
-import { isMobile, menuIconSize } from "@/utils";
 import ICON from "@/components/Icon/index.vue";
+import { menuIconSize } from "@/utils";
 import { h } from "vue";
 
 const Layout = () => import("@/components/Layout/index.vue");
-const Home = () =>
-  import(
-    isMobile() ? "@/pages/Home/index.mobile.vue" : "@/pages/Home/index.vue"
-  );
+const Home = () => import("@/pages/Home/index.vue");
 const About = () => import("@/pages/About/index.vue");
 const Login = () => import("@/pages/Login/index.vue");
 
